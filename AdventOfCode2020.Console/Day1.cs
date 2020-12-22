@@ -8,7 +8,7 @@ namespace AdventOfCode2020
 {
     public class Day1
     {
-        public static int[] OrderedInput { get; set; } = Helper.ReadIntValuesFromFile("Day1.txt").OrderBy(n => n).ToArray();
+        public static int[] OrderedInput { get; set; } = InputHelper.ReadIntValuesFromFileAsync(1).Result.OrderBy(n => n).ToArray();
 
         public static int Challenge1()
         {
