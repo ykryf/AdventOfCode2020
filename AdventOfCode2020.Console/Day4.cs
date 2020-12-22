@@ -10,7 +10,7 @@ namespace AdventOfCode2020
 {
     class Day4
     {
-        public static List<Passport> Passports { get; set; } = GetPassports("Day4.txt");
+        public static List<Passport> Passports { get; set; } = GetPassportsAsync().Result;
 
         private static string[] passportKeys = new string[]
         {
@@ -54,9 +54,9 @@ namespace AdventOfCode2020
         }
 
         #region ** Helper Methods **
-        public static List<Passport> GetPassports(string filepath)
+        public static async Task<List<Passport>> GetPassportsAsync()
         {
-            string[] input = Helper.ReadValuesFromFile(filepath, true);
+            string[] input = await InputHelper.ReadValuesFromFileAsync(4, allowEmptyStrings: true);
             List<Passport> passports = new List<Passport>();
             string passportValue = "";
             foreach (string row in input)

@@ -8,7 +8,7 @@ namespace AdventOfCode2020
 {
     class Day2
     {
-        public static List<Password> Passwords = SetPasswords("Day2.txt");
+        public static List<Password> Passwords = SetPasswordsAsync().Result;
 
         public static int Challenge1()
         {
@@ -41,10 +41,10 @@ namespace AdventOfCode2020
         }
 
         #region ** Helper Methods **
-        public static List<Password> SetPasswords(string filepath)
+        public static async Task<List<Password>> SetPasswordsAsync()
         {
             var passwords = new List<Password>();
-            string[] input = Helper.ReadValuesFromFile(filepath);
+            string[] input = await InputHelper.ReadValuesFromFileAsync(2);
             foreach (var item in input)
             {
                 string[] rowValues = item.Split('-', ' ', ':');

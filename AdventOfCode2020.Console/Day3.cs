@@ -8,7 +8,7 @@ namespace AdventOfCode2020
 {
     class Day3
     {
-        public static string[] Input { get; set; } = Helper.ReadValuesFromFile("Day3.txt");
+        public static string[] Input { get; set; } = InputHelper.ReadValuesFromFileAsync(3).Result;
         public static int Challenge1(int downStep = 1, int rightStep = 3)
         {
             int index = 0;
